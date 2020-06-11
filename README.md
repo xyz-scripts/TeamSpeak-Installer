@@ -1,5 +1,5 @@
 # TeamSpeak-Installer
-OpenVPN-Installer
+TeamSpeak-Installer
 <hr >
 Ein Open-Source-Installationsprogramm für einen TeamSpeak Server, Developed by .xyz
 
