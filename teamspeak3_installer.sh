@@ -35,7 +35,7 @@ whiteMessage "                   .xyz Scripts                      "
 whiteMessage "        Webseite: https://www.leonhuber.de/          "
 kekMessage "#######################################################"
 whiteMessage "      TeamSpeak3 Server Installer by .xyz Scripts       "
-whiteMessage "        Version 1.1.2 - Beta - for Debian 8/9/10        "
+whiteMessage "        Version 1.1.3 - Stable - for Debian 8/9/10        "
 kekMessage "#######################################################"
 sleep 5.0
 
@@ -115,19 +115,41 @@ tar xfvj teamspeak3-server_linux_amd64-3.12.1.tar.bz2
 rm teamspeak3-server_linux_amd64-3.12.1.tar.bz2
 cd teamspeak3-server_linux_amd64
 clear
+
+clear
+echo ""
+magentaMessage "Sind sie mit den TeamSpeak3 Lizenzbedingungen einverstanden?"
+echo ""
+whiteMessage "1) Ja"
+whiteMessage "2) Nein"
+echo ""
+read -p "-> " ts3server
+
+if [ "$ts3server" = "1" ]; then
+	touch .ts3server_license_accepted
+	magentaMessage "Der TeamSpeak3 Server wurde erfolgreich installiert"
+	sleep 2
 fi
 
-greenMessage "Der TeamSpeak3 Server wird nun gestartet. Bitte warten!"
-sleep 2
-./ts3server_startscript.sh start
-magentaMessage "Der TeamSpeak3 Server wurde erfolgreich gestartet."
-greenMessage   "Der Berechtigungsschlüssel und die Querydaten werden abgerufen..."
-sleep 3
-echo ""
-echo ""
-echo ""
-echo ""
+if [ "$ts3server" = "2" ]; then
+	greenMessage "Um das Script nutzen zu können must du denn TeamSpeak3 Lizenzbedingungen von TeamSpeak zustimmen!"
+	cd /home/
+	rm -r teamspeak3-server_linux_amd64
+	exit 0
+fi
 
-greenMessage "Vielen Dank für das Nutzen meines Scriptes!"
-sleep 2.5
-exit
+fi
+	greenMessage "Der TeamSpeak3 Server wird nun gestartet. Bitte warten!"
+	sleep 2
+	./ts3server_startscript.sh start
+	magentaMessage "Der TeamSpeak3 Server wurde erfolgreich gestartet."
+	greenMessage   "Der Berechtigungsschlüssel und die Querydaten werden abgerufen..."
+	sleep 3
+	echo ""
+	echo ""
+	echo ""
+	echo ""
+
+	greenMessage "Vielen Dank für das Nutzen meines Scriptes!"
+	sleep 2.5
+	exit
