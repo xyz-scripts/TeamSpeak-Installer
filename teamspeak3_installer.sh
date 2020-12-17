@@ -110,9 +110,9 @@ if [ "$user" = "2" ]; then
 greenMessage "TeamSpeak3 Server wird installiert!"
 sleep 2
 cd /home/
-wget https://package.leonhuber.de/teamspeak3-server_linux_amd64-3.12.1.tar.bz2
-tar xfvj teamspeak3-server_linux_amd64-3.12.1.tar.bz2
-rm teamspeak3-server_linux_amd64-3.12.1.tar.bz2
+wget https://files.teamspeak-services.com/releases/server/3.13.2/teamspeak3-server_linux_amd64-3.13.2.tar.bz2
+tar xfvj teamspeak3-server_linux_amd64-3.13.2.tar.bz2
+rm teamspeak3-server_linux_amd64-3.13.2.tar.bz2
 cd teamspeak3-server_linux_amd64
 clear
 
